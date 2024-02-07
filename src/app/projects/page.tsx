@@ -1,13 +1,13 @@
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 import coveloMobileImage from "@/assets/images/covelo-mobile.png";
 import coveloDesktopImage from "@/assets/images/covelo-desktop.png";
+import { Cpu, Github, Globe } from "lucide-react";
 
 import GlitchH1 from "@/components/ui/GlitchH1";
-import Image from "next/image";
-import { Cpu, Github, Globe } from "lucide-react";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/Button";
 
 const ProjectsPage = () => {

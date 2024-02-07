@@ -1,22 +1,43 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Bot, Github, Linkedin } from "lucide-react";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   return (
     <div className="fixed left-0 right-0 top-0 z-50 bg-background py-4">
       <MaxWidthWrapper className="flex justify-between">
         <ul className="flex space-x-4">
           <li className="text-muted-foreground duration-300 hover:text-foreground">
-            <Link href="/">home</Link>
+            <Link
+              href="/"
+              className={cn(pathname === "/" && "text-foreground")}
+            >
+              home
+            </Link>
           </li>
           <li className="text-muted-foreground duration-300 hover:text-foreground">
-            <Link href="/about">about me</Link>
+            <Link
+              href="/about"
+              className={cn(pathname === "/about" && "text-foreground")}
+            >
+              about me
+            </Link>
           </li>
           <li className="text-muted-foreground duration-300 hover:text-foreground">
-            <Link href="/projects">projects</Link>
+            <Link
+              href="/projects"
+              className={cn(pathname === "/projects" && "text-foreground")}
+            >
+              projects
+            </Link>
           </li>
         </ul>
         <ul className="flex space-x-4">

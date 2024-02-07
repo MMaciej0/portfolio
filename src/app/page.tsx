@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import me from "@/assets/images/portfolio-color-img.png";
-import { MessageCircleWarning } from "lucide-react";
 
+import { MessageCircleWarning } from "lucide-react";
 import GlitchH1 from "@/components/ui/GlitchH1";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+
+import me from "@/assets/images/portfolio-color-img.png";
 
 export const metadata: Metadata = {
   title: "Maciej Mądry - Portfolio",
