@@ -35,6 +35,28 @@
   }
 }
 
+/* Default scrollbar styles */
+::-webkit-scrollbar {
+  width: 3px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted-foreground)); /* Color of the thumb */
+  border-radius: 3px; /* Rounded corners of the thumb */
+}
+
+/* Media query for wide screens */
+@media screen and (min-width: 768px) {
+  /* Adjust scrollbar width and thumb size for wide screens */
+  ::-webkit-scrollbar {
+    width: 3px; /* Narrower scrollbar */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground)); /* Lighter thumb color */
+  }
+}
+
 .glitch-text {
   animation: glitch 2s ease infinite 2s alternate-reverse;
 }

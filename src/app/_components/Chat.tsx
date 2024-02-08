@@ -33,8 +33,8 @@ const Chat: FC<ChatProps> = ({ inputRef }) => {
   const lastMessageIsUser = messages[messages.length - 1]?.role === "user";
 
   return (
-    <div className="flex h-full w-full flex-col justify-between rounded-lg border border-foreground/20 bg-background p-2 md:max-h-[600px] md:p-6">
-      <div className="h-full overflow-y-auto" ref={scrollRef}>
+    <div className="flex h-[80vh] w-full flex-col justify-between rounded-lg border border-foreground/20 bg-background p-2 md:h-[700px] md:p-6">
+      <div className="h-full overflow-y-auto px-2" ref={scrollRef}>
         {messages.map((message) => (
           <ChatMessage message={message} key={message.id} />
         ))}
@@ -70,7 +70,7 @@ const Chat: FC<ChatProps> = ({ inputRef }) => {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="relative flex items-center bg-background"
+        className="relative flex items-center bg-background pt-2"
       >
         <Button
           onClick={() => setMessages([])}
