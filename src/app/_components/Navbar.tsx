@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 import { Bot, Github, Linkedin } from "lucide-react";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import ChatButton from "./ChatButton";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -41,8 +42,8 @@ const Navbar = () => {
           </li>
         </ul>
         <ul className="flex space-x-4">
-          <li className="animate-pulse cursor-pointer text-muted-foreground duration-300 hover:animate-none hover:text-foreground lg:hidden">
-            <Bot />
+          <li>
+            <ChatButton />
           </li>
           <li className="text-muted-foreground duration-300 hover:text-foreground">
             <Link href="https://github.com/MMaciej0">

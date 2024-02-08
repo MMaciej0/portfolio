@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <MaxWidthWrapper className="h-screen w-full overflow-hidden pt-24">
-      <article className="mx-auto flex max-w-[600px] items-center justify-center space-x-3 rounded border text-sm md:text-base">
+    <MaxWidthWrapper className="h-screen w-full max-w-4xl overflow-hidden pt-24">
+      <article className="mx-auto flex items-center justify-center space-x-3 rounded border text-sm md:text-base">
         <p className="pl-4">
           <MessageCircleWarning size={25} className="flex-shrink-0" />
         </p>
@@ -24,30 +24,25 @@ export default function Home() {
           assistant or browse the web manually. Thanks for dropping by!
         </p>
       </article>
-      <div className="grid h-full grid-cols-1 overflow-hidden py-2 lg:grid-cols-2">
-        <header className="grid h-full grid-cols-1 grid-rows-7">
-          <div className="row-span-2 my-auto px-4 text-2xl text-muted-foreground">
-            <p>Hello</p>
-            <GlitchH1 text="I'm Maciej Mądry" />
-            <p className="glitch-text w-full text-right">Frontend Developer</p>
-          </div>
-          <div className="relative row-span-5">
-            <Image
-              src={me}
-              alt="A photo of me"
-              fill
-              className="animate-image object-cover object-top"
-            />
-            <div className="glitch__layers">
-              <div className="glitch__layer"></div>
-              <div className="glitch__layer"></div>
-            </div>
-          </div>
+      <section className="grid h-full grid-rows-7">
+        <header className="row-span-2 my-auto px-4 text-2xl text-muted-foreground">
+          <p>Hello</p>
+          <GlitchH1 text="I'm Maciej Mądry" />
+          <p className="glitch-text w-full text-right">Frontend Developer</p>
         </header>
-        <section className="hidden p-6 lg:flex lg:items-center lg:justify-center">
-          chat bot
-        </section>
-      </div>
+        <div className="relative row-span-5 mx-auto w-full max-w-xl">
+          <Image
+            src={me}
+            alt="A photo of me"
+            fill
+            className="animate-image object-cover object-top"
+          />
+          <div className="glitch__layers">
+            <div className="glitch__layer"></div>
+            <div className="glitch__layer"></div>
+          </div>
+        </div>
+      </section>
     </MaxWidthWrapper>
   );
 }
