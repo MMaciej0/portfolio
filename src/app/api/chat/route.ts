@@ -10,6 +10,8 @@ import { getVectorStore } from "@/lib/astradb";
 import { createRetrievalChain } from "langchain/chains/retrieval";
 import { AIMessage, HumanMessage } from "@langchain/core/messages";
 import { createHistoryAwareRetriever } from "langchain/chains/history_aware_retriever";
+import { UpstashRedisCache } from "langchain/cache/upstash_redis";
+import { Redis } from "@upstash/redis";
 
 export const POST = async (req: Request) => {
   try {
@@ -25,6 +27,10 @@ export const POST = async (req: Request) => {
 
     const lastMessageContent = messages[messages.length - 1].content;
 
+    const cache = new UpstashRedisCache({
+      client: Redis.fromEnv(),
+    });
+
     const { stream, handlers } = LangChainStream();
 
     const chatModel = new ChatOpenAI({
@@ -32,11 +38,13 @@ export const POST = async (req: Request) => {
       streaming: true,
       callbacks: [handlers],
       verbose: true,
+      cache,
     });
 
     const rephrasingModel = new ChatOpenAI({
       modelName: "gpt-3.5-turbo",
       verbose: true,
+      cache,
     });
 
     const rephrasePrompt = ChatPromptTemplate.fromMessages([

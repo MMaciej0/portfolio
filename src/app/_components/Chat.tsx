@@ -89,7 +89,7 @@ const Chat: FC<ChatProps> = ({ inputRef }) => {
           onChange={handleInputChange}
         />
         <Button
-          disabled={isLoading || input.length === 0}
+          disabled={input.length === 0}
           size="icon"
           variant="ghost"
           className="absolute right-0"
