@@ -2,6 +2,7 @@ import React from "react";
 
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import GlitchH1 from "@/components/ui/GlitchH1";
+import Link from "next/link";
 
 const AboutPage = () => {
   return (
@@ -69,6 +70,30 @@ const AboutPage = () => {
             reach out to me at:{" "}
             <span className="bg-accent px-1">maciejmadry0@gmail.com</span>.
           </article>
+          <p className="text-base font-semibold text-muted-foreground">
+            You can also find me on my socials:{" "}
+            <Link
+              className="text-foreground hover:underline"
+              href="https://www.facebook.com/maciej.madry.33"
+            >
+              Facebook
+            </Link>
+            ,{" "}
+            <Link
+              className="text-foreground hover:underline"
+              href="https://www.linkedin.com/in/maciej-m%C4%85dry/"
+            >
+              Linkedin
+            </Link>{" "}
+            or check my{" "}
+            <Link
+              className="text-foreground hover:underline"
+              href="https://github.com/MMaciej0/"
+            >
+              Github
+            </Link>{" "}
+            profile.
+          </p>
         </section>
       </section>
     </MaxWidthWrapper>
