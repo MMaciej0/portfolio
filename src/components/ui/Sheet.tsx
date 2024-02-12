@@ -33,6 +33,11 @@ const Sheet: FC<SheetProps> = ({
 
   useEffect(() => {
     setIsVisible(isOpen);
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
   }, [isOpen]);
 
   const handleClose = useCallback(() => {
