@@ -1,12 +1,16 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { Bot } from "lucide-react";
 
 import Sheet from "@/components/ui/Sheet";
 import Chat from "@/app/_components/Chat";
 
-const ChatButton = () => {
+interface ChatButtonProps {
+  pathname: string;
+}
+
+const ChatButton: FC<ChatButtonProps> = ({ pathname }) => {
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -15,6 +19,11 @@ const ChatButton = () => {
       inputRef.current.focus();
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
     <>
       <button

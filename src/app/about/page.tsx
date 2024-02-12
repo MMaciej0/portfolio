@@ -31,9 +31,9 @@ const AboutPage = () => {
         </section>
         <hr className="border-muted" />
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold">Skills</h2>
-          <article className="text-base font-semibold text-muted-foreground">
-            <p className="py-2">
+          <h2 className="text-xl font-semibold">Skills & Technologies</h2>
+          <article className="space-y-2 text-base font-semibold text-muted-foreground">
+            <p>
               I specialize in frontend development, with a focus on{" "}
               <strong>React</strong> and <strong>Next.js</strong>.
             </p>
@@ -47,6 +47,12 @@ const AboutPage = () => {
               <strong>Auth.js</strong> and <strong>Clerk</strong>. Currently, I
               store web data using <strong>MongoDB</strong> in conjunction with{" "}
               <strong>Prisma</strong>.
+            </p>
+            <p>
+              However, I try to stay up to date with newly created libraries and
+              incorporate them into my projects as much as I can, which is why
+              the above-mentioned technologies are just an example of the most
+              frequently used ones.
             </p>
           </article>
         </section>

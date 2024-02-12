@@ -36,13 +36,9 @@ const ProjectsPage = () => {
               <hr className="border-accent" />
 
               <div className="grid grid-cols-1 md:grid-cols-3">
-                <div className="col-span-2">
+                <div className="col-span-2 pr-2">
                   <h3 className="py-2">Main functionalities:</h3>
                   <ul className="space-y-4">
-                    <li className="flex items-center space-x-2">
-                      <Cpu size={20} className="flex-shrink-0" />
-                      <span>server and client-side rendering,</span>
-                    </li>
                     <li className="flex items-center space-x-2">
                       <Cpu size={20} className="flex-shrink-0" />
                       <span>server and client-side rendering,</span>

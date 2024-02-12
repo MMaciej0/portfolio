@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-import { Bot, Github, Linkedin } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import ChatButton from "./ChatButton";
 
@@ -43,7 +43,7 @@ const Navbar = () => {
         </ul>
         <ul className="flex space-x-4">
           <li>
-            <ChatButton />
+            <ChatButton pathname={pathname} />
           </li>
           <li className="text-muted-foreground duration-300 hover:text-foreground">
             <Link href="https://github.com/MMaciej0">

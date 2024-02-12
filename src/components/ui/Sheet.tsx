@@ -1,6 +1,15 @@
 "use client";
 
-import React, { FC, HTMLAttributes, useEffect, useState } from "react";
+import React, {
+  FC,
+  HTMLAttributes,
+  KeyboardEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { useClickOutside } from "@/hooks/useClickOutside";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
 
@@ -20,17 +29,33 @@ const Sheet: FC<SheetProps> = ({
   ...props
 }) => {
   const [isVisible, setIsVisible] = useState(isOpen);
+  const childrenRef = useRef(null);
 
   useEffect(() => {
     setIsVisible(isOpen);
   }, [isOpen]);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setTimeout(() => {
       onClose();
     }, 500);
     setIsVisible(false);
-  };
+  }, [onClose]);
+
+  useEffect(() => {
+    const handler: EventListener = (e: Event) => {
+      const keyboardEvent = e as unknown as KeyboardEvent;
+      if (keyboardEvent.key === "Escape") {
+        handleClose();
+      }
+    };
+    document.addEventListener("keydown", handler);
+    return () => {
+      document.removeEventListener("keydown", handler);
+    };
+  }, [handleClose]);
+
+  useClickOutside(handleClose, childrenRef);
 
   if (!isOpen) {
     return null;
@@ -53,6 +78,7 @@ const Sheet: FC<SheetProps> = ({
             </Button>
           </div>
           <div
+            ref={childrenRef}
             className={cn(
               "h-full py-10 transition-transform duration-500 ease-in-out",
               isVisible ? "translate-y-0" : "translate-y-full",
