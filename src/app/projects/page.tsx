@@ -93,7 +93,7 @@ const ProjectsPage = () => {
               </Link>
 
               <Link
-                href="https://co-velo.vercel.app/"
+                href="https://covelo.vercel.app"
                 className={cn(
                   buttonVariants({ variant: "ghost", className: "w-full" }),
                 )}
